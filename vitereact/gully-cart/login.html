@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vendor Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      min-height: 100vh;
+      display: flex;
+      justify-content:flex-end;
+      background-image: url("login.jpg");
+      background-size: contain;
+      align-items:end;
+      animation: fadeIn 1s ease-in-out;
+      margin-right: 150px;
+      
+      padding-bottom:-100px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-container {
+      background-color: transparent;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      text-align: center;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      background: linear-gradient(to right, rgb(255, 255, 255),  #02021a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #cccccc16;
+      transition: all 0.3s ease;
+    }
+
+    .form-container input:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    }
+
+    .form-container button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #0056b3;
+      transform: scale(1.03);
+    }
+
+    #error-msg {
+      color: red;
+      margin-top: 15px;
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Vendor Login</h2>
+    <form onsubmit="return loginVendor()">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="error-msg"></p>
+  </div>
+
+  <script>
+    function loginVendor() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      // Dummy login check
+      if (user === "vendor1" && pass === "1234") {
+        localStorage.setItem("vendor", user);
+        window.location.href = "details.html"; // Link to details page
+        return false;
+      } else {
+        const msg = document.getElementById("error-msg");
+        msg.textContent = "Invalid credentials!";
+        msg.style.animation = "shake 0.3s ease-in-out";
+        setTimeout(() => msg.style.animation = "", 300);
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>

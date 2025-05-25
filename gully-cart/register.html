@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vendor Registration</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body><div class="hero">
+  <img src="register.jpg" >
+</div>
+  <div class="container">
+    <form id="step1" class="form-box">
+      <h2>Vendor Registration</h2>
+
+      <label for="vendorName">Vendor Name</label>
+      <input type="text" id="vendorName" required />
+      
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required />
+
+      <label for="cartType">Cart Type</label>
+      <input type="text" id="cartType" required />
+
+      <label for="category">Cart Category</label>
+      <select id="category" required>
+        <option value="">Select Category</option>
+        <option value="Food">Food</option>
+        <option value="Beverages">Beverages</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Stationery">Stationery</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <label for="description">Cart Description</label>
+      <textarea id="description" rows="2" required></textarea>
+
+      <label for="photo">Upload Cart Photo</label>
+      <input type="file" id="photo" accept="image/*" required />
+
+      <button type="button" onclick="goToStep2()">Next</button>
+    </form>
+
+    <form id="step2" class="form-box" style="display: none;">
+      <h2>Set Username and  Password</h2>
+      <label for="Username">Username</label>
+      <input type="text" id="Username" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" required />
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script src="register.js"></script>
+</body>
+</html>

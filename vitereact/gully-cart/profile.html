@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vendor Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-XXX" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fff3e0);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-container {
+      max-width: 600px;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .greeting {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #777;
+    }
+
+    .profile-photo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-photo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #007bff;
+    }
+
+    .profile-info p {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #444;
+    }
+
+    .profile-info span.label {
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 12px;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .actions button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .actions button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container" id="profileContainer" style="display: none;">
+    <h2>Welcome, <span id="vendorName">Vendor</span>!</h2>
+    <div class="greeting">Keep serving happiness through your cart! 😊</div>
+
+    <div class="profile-photo">
+      <img id="cartPhoto" src="default-cart.jpg" alt="Cart Photo" />
+    </div>
+
+    <div class="status-badge">Currently Active</div>
+
+    <div class="profile-info">
+      <p><span class="label">Username:</span> <span id="username"></span></p>
+      <p><span class="label">Phone Number:</span> <span id="phone"></span></p>
+      <p><span class="label">Cart Type:</span> <span id="cartType"></span></p>
+      <p><span class="label">Cart Category:</span> <span id="category"></span></p>
+      <p><span class="label">Cart Location Range:</span> <span id="location"></span></p>
+      <p><span class="label">Active Time:</span> <span id="activeTime"></span></p>
+      <p><span class="label">Available Days:</span> <span id="days"></span></p>
+    </div>
+
+    <div class="actions">
+      <button onclick="editDetails()">Edit Details</button>
+      <button onclick="showOnMap()">Show Me on Map</button>
+      <button onclick="logoutVendor()">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    const vendor = localStorage.getItem("vendor");
+    const details = JSON.parse(localStorage.getItem("cartDetails"));
+    function showOnMap() {
+   window.location.href = "map.html"; // Map page pe le jaane ke liye
+}
+
+
+    if (!vendor || !details) {
+      alert("Please login first to view your profile.");
+      window.location.href = "register-login.html"; // ya login.html
+    } else {
+      document.getElementById("profileContainer").style.display = "block";
+      document.getElementById("vendorName").textContent = vendor;
+      document.getElementById("username").textContent = vendor;
+      document.getElementById("phone").textContent = details.phone || "Not Provided";
+      document.getElementById("cartType").textContent = details.cartType || "N/A";
+      document.getElementById("category").textContent = details.category || "N/A";
+      document.getElementById("location").textContent = details.location || "Not Set";
+      document.getElementById("activeTime").textContent = details.activeTime || "Not Set";
+      document.getElementById("days").textContent = details.days || "Not Set";
+      document.getElementById("cartPhoto").src = details.photo || "default-cart.jpg";
+    }
+
+    function editDetails() {
+      window.location.href = "details.html";
+    }
+
+    function logoutVendor() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

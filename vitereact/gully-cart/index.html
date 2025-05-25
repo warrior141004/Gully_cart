@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gully-cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href=".\websiteicon" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  </head>
+  <body>
+    <div id="main">
+      <div id="page1">
+       <header> <nav>
+          <img src="gully cart.png" alt="logo" height="100px">
+          
+          <div id="nav-part2" >
+            <h4> <a href="index.html">Home</a></h4>
+            <h4 ><a href="register-login.html">Register/login</a></h4>
+            <h4><a href="profile.html">Profile</a></h4> 
+            <h4><a href="about.html">About</a></h4> 
+            <h4><a href="contact.html">Contact</a></h4>
+          </div>
+          
+        </nav></header>
+        
+        <div id="center" >
+           <div id="search">
+  <input type="text" id="searchInput" class="search-box" placeholder="Search for carts ..">
+  <button class="search-button" onclick="searchCart()">Search</button>
+</div>
+
+          
+          <div id="left"></div>
+          <div id="right">
+            <h1>YOUR<br>
+              LOCAL <BR>CART, <br> 
+               JUST A<br>
+              CLICK<br>AWAY!!<br>
+
+            </h1>
+          </div>
+           
+          
+        </div>
+    </div>
+    
+      <div class="page">
+       <div class="left">
+      <div class="container">
+        <div class="left">
+      <h1>Let's explore nearby carts around you!</h1><div class="vertical-text">E<BR>X<BR>P<BR>L<BR>O<BR>R<BR>E</div> 
+      <button class="btn" onclick="getLocation()">Explore Now →</button>
+    </div>
+    <div class="right">
+      <div class="vertical1-text">C<BR>A<BR>R<BR>T<BR>S</div>
+      <video autoplay loop muted>
+        <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+     
+    
+  </div>
+      
+
+      </div>
+    </div>
+    <div id="page3">
+      <h1>Gully Cart Categories</h1>
+
+<div class="category-container">
+  <a href="food-location.html" class="category-button">
+    <i class="fas fa-hamburger food-icon"></i>
+    <span>Food</span>
+  </a>
+  <a href="beverages-location.html" class="category-button">
+    <i class="fas fa-coffee beverages-icon"></i>
+    <span>Beverages</span>
+  </a>
+  <a href="clothes-location.html" class="category-button">
+    <i class="fas fa-tshirt clothes-icon"></i>
+    <span>Clothes</span>
+  </a>
+  <a href="plastic-location.html" class="category-button">
+    <i class="fas fa-box plastic-icon"></i>
+    <span>Plastic</span>
+  </a>
+  <a href="samosa-location.html" class="category-button">
+    <i class="fas fa-cookie-bite samosa-icon"></i>
+    <span>Samosa</span>
+  </a>
+  <a href="fruits-location.html" class="category-button">
+    <i class="fas fa-apple-alt fruits-icon"></i>
+    <span>Fruits</span>
+  </a>
+  <a href="vegetable-location.html" class="category-button">
+    <i class="fas fa-carrot vegetable-icon"></i>
+    <span>Vegetables</span>
+  </a>
+</div>
+
+<div class="map-container">
+  Map will display selected cart locations here.
+</div>
+
+      <footer>
+  <div class="footer-content">
+    
+    <div class="about">
+      <h3>About Us</h3>
+      <p>GullyCart connects local vendors with customers through smart cart tracking and easy discovery — bringing your neighborhood market online.</p>
+    </div>
+
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="register-login.html">Register</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <h3>Contact</h3>
+      <p class="Email -id">Email: support@gullycart.com</p>
+      <p>Phone: +91 9876543210</p>
+    </div>
+    
+  </div>
+
+  <div class="copyright">
+    <p>Made with ❤️ by Team GullyCart</p>
+  </div>
+</footer>
+
+  </div>    
+   
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

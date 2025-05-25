@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vendor Location Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 100vh; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      const map = L.map('map').setView([lat, lon], 15);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Current vendor marker
+      L.marker([lat, lon]).addTo(map)
+        .bindPopup('You are here!')
+        .openPopup();
+
+      // Example nearby vendors (static for now, dynamic later)
+      const vendors = [
+        { name: 'Vendor A', lat: lat + 0.001, lon: lon + 0.001 },
+        { name: 'Vendor B', lat: lat - 0.001, lon: lon - 0.001 }
+      ];
+
+      vendors.forEach(v => {
+        L.marker([v.lat, v.lon]).addTo(map).bindPopup(v.name);
+      });
+    });
+  </script>
+</body>
+</html>
